@@ -1,0 +1,246 @@
+:root{
+  --accent: #7a0f3a;
+  --accent-contrast: #fff;
+  --muted: #6b6b6b;
+}
+
+html,body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:#fff;
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* MAIN WRAPPER */
+.resume-wrap{
+  max-width: 1100px;
+  margin: 28px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  border-radius: 6px;
+  display:flex;
+  flex-wrap:wrap; /* important for responsiveness */
+}
+
+/* LEFT COLUMN */
+.resume-left{
+  background: var(--accent);
+  color: var(--accent-contrast);
+  width: 36%;
+  padding: 50px 32px;
+  box-sizing: border-box;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100%;
+}
+
+/* RIGHT COLUMN */
+.resume-right{
+  width: 64%;
+  background: #fff;
+  padding: 44px 56px;
+  box-sizing:border-box;
+}
+
+/* PROFILE IMAGE */
+.profile-img{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow:hidden;
+  border:6px solid rgba(255,255,255,0.95);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  display:block;
+}
+
+.profile-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.name{
+  margin-top: 22px;
+  text-align:center;
+  font-weight:700;
+  font-size:28px;
+  letter-spacing:0.2px;
+}
+
+.left-items{
+  width:100%;
+  margin-top: 32px;
+}
+
+/* LEFT ROW ITEMS */
+.left-row{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-bottom:20px;
+  padding-left:6px;
+}
+
+.left-row .icon{
+  background: rgba(255,255,255,0.12);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  flex:0 0 44px;
+}
+
+.left-row .meta{
+  flex:1;
+  font-size:0.97rem;
+  color: rgba(255,255,255,0.95);
+}
+
+.left-row .meta .label{
+  display:block;
+  font-weight:700;
+  font-size:0.95rem;
+  margin-bottom:4px;
+}
+
+/* RIGHT SECTIONS */
+.section{
+  margin-bottom:34px;
+  opacity:0;
+  transform:translateY(16px);
+  transition: all 0.6s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:none;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-weight:800;
+  color:var(--accent);
+  font-size:1.25rem;
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+}
+
+.section-title .bullet{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--accent);
+  color:#fff;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  box-shadow: 0 3px 8px rgba(122,15,58,0.12);
+  font-size:1.05rem;
+}
+
+.divider{
+  height:1px;
+  background:#dedede;
+  margin:14px 0 18px;
+}
+
+ul.simple{
+  margin:0;
+  padding-left:18px;
+  color:#222;
+  line-height:1.7;
+}
+
+.about-me{
+  font-size:0.95rem;
+  line-height:1.6;
+}
+
+.about-title{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+/* SKILL CIRCLES */
+.skill {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.skill svg {
+  transform: rotate(-90deg);
+}
+
+.skill .progress {
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.skill .skill-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ===============================
+   RESPONSIVE FIXES
+================================== */
+@media (max-width: 992px){
+  .resume-wrap{
+    flex-direction:column;
+  }
+
+  .resume-left,
+  .resume-right{
+    width:100%;
+  }
+
+  .resume-left{
+    padding:32px 24px;
+  }
+
+  .resume-right{
+    padding:32px 24px;
+  }
+
+  .profile-img{
+    width:150px;
+    height:150px;
+  }
+}
+
+@media (max-width: 576px){
+  .name{font-size:22px;}
+  .profile-img{width:120px;height:120px;}
+  .section-title{font-size:1.05rem;}
+  .resume-right, .resume-left{padding:20px;}
+}
+
+/* PRINT */
+@media print{
+  body{background:#fff;}
+  .resume-wrap{box-shadow:none; border-radius:0; margin:0;}
+  .resume-left{padding:26px;}
+  .resume-right{padding:26px;}
+}
+
